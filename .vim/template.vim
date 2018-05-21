@@ -3,7 +3,7 @@
 " Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-18
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-05-18
+" Last Change: 2018-05-21
 "
 " There are some template files in template directory, Which define some common 
 " header styles and information. This script will load these templates and insert 
@@ -73,7 +73,7 @@ augroup golang
     autocmd BufWritePre,FileWritePre *.go call s:update_template(s:golang_opts)
 augroup END
 
-" vim script header template. All files which have the .vim suffix and .vimrc file 
+" vim script header template. All files which have the .vim suffix or .vimrc file 
 " will use this header template. 
 let s:vimscript_opts = {
             \ 'file_name': 'template.vim',
@@ -85,7 +85,7 @@ augroup vimscript
     autocmd BufWritePre,FileWritePre *.vim,.vimrc call s:update_template(s:vimscript_opts)
 augroup END
 
-" Python header template. All files which have the .py and .py3 suffix will
+" Python header template. All files which have the .py or .py3 suffix will
 " use this header template.
 let s:python_opts = {
             \ 'file_name': 'template.py',
@@ -100,3 +100,91 @@ augroup python
 augroup END
 
 
+" C language header template. All files which have the .c suffix will use this 
+" header template.
+let s:c_opts = {
+            \ 'file_name': 'template.c',
+            \ 'range': '1,7' }
+
+augroup c
+    au!
+    autocmd BufNewFile *.c call s:insert_template(s:c_opts)
+    autocmd BufWritePre,FileWritePre *.c call s:update_template(s:c_opts)
+augroup END
+
+" C++ language header template. All files which have the .cc or .cpp suffix will use this 
+" header template.
+let s:cpp_opts = {
+            \ 'file_name': 'template.cc',
+            \ 'range': '1,6' }
+
+augroup cpp
+    au!
+    autocmd BufNewFile *.cc,*.cpp call s:insert_template(s:cpp_opts)
+    autocmd BufWritePre,FileWritePre *.cc,*.cpp call s:update_template(s:cpp_opts)
+augroup END
+
+" JavaScript header template. All files which have the .js suffix will use
+" this header template.
+let s:javascript_opts = {
+            \ 'file_name': 'template.js',
+            \ 'range': '1,6' }
+
+augroup javascript
+    au!
+    autocmd BufNewFile *.js call s:insert_template(s:javascript_opts)
+    autocmd BufWritePre,FileWritePre *.js,*.cpp call s:update_template(s:javascript_opts)
+augroup END
+
+" HTML header template. All files which have the .html suffix will use this
+" header template.
+augroup html
+    au!
+    " It only inserts the content of template.html when you create a new file.
+    autocmd BufNewFile *.html 0r $HOME/.vim/template/template.html
+augroup END
+
+" Bash Script header template. All files which have the .sh or .bash suffix
+" will use this header template.
+let s:bash_opts = {
+            \ 'file_name': 'template.sh',
+            \ 'range': '1,7',
+            \ 'has_file_field': 1 }
+
+augroup bash
+    au!
+    autocmd BufNewFile *.sh,*.bash call s:insert_template(s:bash_opts)
+    autocmd BufWritePre,FileWritePre *.sh,*.bash call s:update_template(s:bash_opts)
+augroup END
+
+" Protobuf protocol header template. All files which have the .proto or .pb
+" suffix will use this header template.
+let s:protobuf_opts = {
+            \ 'file_name': 'template.proto',
+            \ 'range': '1,6' }
+
+augroup protobuf
+    au!
+    autocmd BufNewFile *.proto,*.pb call s:insert_template(s:protobuf_opts)
+    autocmd BufWritePre,FileWritePre *.proto,*.pb call s:update_template(s:protobuf_opts)
+augroup END
+
+" LICENSE template. All files named LICENSE,License or license will use this
+" named .
+augroup license
+    au!
+    autocmd BufNewFile LICENSE,License,license 0r $HOME/.vim/template/template.license
+    autocmd BufNewFile LICENSE,License,license exe 'silent! 3s/\[year\]/' . strftime("%Y")
+    autocmd BufNewFile LICENSE,License,license exe 'silent! 3s/\[fullname\]/' . $USER
+augroup END
+
+" YAML header template. All files which have the .yaml or yml suffix will use
+" this header template.
+let s:yaml_opts = {
+            \ 'file_name': 'template.yaml',
+            \ 'range': '1,6' }
+augroup yaml
+    au!
+    autocmd BufNewFile *.yaml,*.yml call s:insert_template(s:yaml_opts)
+    autocmd BufWritePre,FileWritePre *.yaml,*.yml call s:update_template(s:yaml_opts)
+augroup END
