@@ -3,26 +3,33 @@
 " Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-18
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-05-18
+" Last Change: 2018-05-23
 "
 " My VIM configure. Many settings are personalized for me, but if you still like 
 " it, you can copy this file (.vimrc) and .vim directory to your home directory.
 
-" 如果使用的是evim (比较过程中忽略大小写), 
-" 因为evim.vim已经做了如下的设定, 后续操作直接跳过.
-if v:progname =~? "evim"
+" Because eVim starts Vim and sets options to make it behave like a modeless editor. 
+" So we don't do anything for it when your editor is eVim.
+if v:progname =~? 'evim'
     finish
 endif
 
 
-" 关闭vi兼容模式.
+" Shutdown VIM compatible mode, because it will cause all the enhancements 
+" and improvements of Vi Improved are turned off. 
 set nocompatible
+
+" It's my personal habits :)
 set background=light
 
-comclear    " 清空所有命令
-mapclear    " 清空所有map
+" Clean all existing commands and maps. I don't want to my custom settings
+" are affected by them.
+comclear    
+mapclear
 
-" 只使用.vim中的配置.
+" Only using VIM configures in the '.vim' directory of your home directory.
+" There usually exists a global VIM configure, I also don't want to my custom
+" settings are polluted by them.
 set runtimepath=~/.vim
 let $VIM = '~/.vim'
 let $VIMRUNTIME = '~/.vim'
@@ -48,9 +55,6 @@ if !exists('$VIM_BACKUP')
 else
     let &backupdir = $VIM_BACKUP
 endif
-
-" 载入支架脚本.
-so ~/.vim/skel.vim
 
 so ~/.vim/template.vim
 
