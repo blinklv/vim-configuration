@@ -25,6 +25,17 @@ function! s:nerdtree_configure()
     nnoremap <C-N> :NERDTreeToggle<CR>
 endfunction
 
+function! s:nerdcommenter_configure()
+    " Add spaces after comment delimiters by default
+    let g:NERDSpaceDelims = 1 
+    
+    " Allow commenting and inverting empty lines (useful when commenting a region)
+    let g:NERDCommentEmptyLines = 1
+
+    " Enable trimming of trailing whitespace when uncommenting
+    let g:NERDTrimTrailingWhitespace = 1
+endfunction
+
 call vundle#begin()
 
 " Let Vundle manage Vundle, required.
@@ -38,6 +49,11 @@ Plugin 'haya14busa/incsearch.vim' | call s:insearch_configure()
 " File browser
 " Documentation: help nerdtree
 Plugin 'scrooloose/nerdtree' | call s:nerdtree_configure()
+
+" The NERD commenter provides many different commenting operations and styles 
+" which are invoked via key mappings and a menu.
+" Documentation: help nerdcommenter
+Plugin 'scrooloose/nerdcommenter' | call s:nerdcommenter_configure()
 
 " Vim frontend for the programmer's search tool ack. Install the ack executable: 
 " curl https://beyondgrep.com/ack-2.22-single-file > ack && chmod 0755 ack
@@ -57,9 +73,14 @@ Plugin 'mileszs/ack.vim'
 " Documentation: help bufexplorer
 Plugin 'jlanzarotta/bufexplorer'
 
+" A gateway to Git.
+" Documentation: help fugitive
+Plugin 'tpope/vim-fugitive'
+
 " Golang development
 " Documentation: help vim-go
 Plugin 'fatih/vim-go'
+
 
 " All of your Plugins must be added before the following line.
 call vundle#end()

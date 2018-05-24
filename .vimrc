@@ -145,8 +145,9 @@ nnoremap     <leader>ev     :vsp $HOME/.vimrc<CR>
 nnoremap     <leader>sv     :source $HOME/.vimrc<CR>
 
 " (保存)关闭窗口.
-nnoremap     <leader>cc     :close<CR>
-nnoremap     <leader>wcc    :w<CR>:close<CR>
+" nnoremap     <leader>cl     :close<CR>
+" nnoremap     <leader>wcl    :w<CR>:close<CR>
+nnoremap <C-L> :close<CR>
 
 " 新建标签页.
 nnoremap     <leader>tc     :tab<SPACE>
