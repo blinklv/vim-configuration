@@ -1,7 +1,7 @@
 " plugin.vim
 "
 " Author: blinklv <blinklv@icloud.com>
-" Create Time: 2018-05-24
+" Create Time: 2018-05-23
 " Maintainer: blinklv <blinklv@icloud.com>
 " Last Change: 2018-05-24
 "
@@ -28,15 +28,38 @@ endfunction
 call vundle#begin()
 
 " Let Vundle manage Vundle, required.
+" Documentation: help vundle
 Plugin 'VundleVim/Vundle.vim'
 
 " Incremental search.
+" Documentation: help incsearch.vim
 Plugin 'haya14busa/incsearch.vim' | call s:insearch_configure()
 
 " File browser
+" Documentation: help nerdtree
 Plugin 'scrooloose/nerdtree' | call s:nerdtree_configure()
 
+" Vim frontend for the programmer's search tool ack. Install the ack executable: 
+" curl https://beyondgrep.com/ack-2.22-single-file > ack && chmod 0755 ack
+"
+" Usage: :Ack [options] {pattern} [{directories}]
+" Documentation: help Ack
+Plugin 'mileszs/ack.vim'
+
+" With bufexplorer, you can quickly and easily switch between buffers by using 
+" the one of the default public interfaces:
+" 
+" <Leader>be - To start exploring in the current window.
+" <Leader>bt - To toggle bufexplorer on or off in the current window.
+" <Leader>bs - To start exploring in a newly split horizontal window.
+" <Leader>bv - To start exploring in a newly split vertical window.
+"
+" Documentation: help bufexplorer
+Plugin 'jlanzarotta/bufexplorer'
+
 " Golang development
+" Documentation: help vim-go
 Plugin 'fatih/vim-go'
 
+" All of your Plugins must be added before the following line.
 call vundle#end()

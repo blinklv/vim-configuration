@@ -34,10 +34,19 @@ set runtimepath=~/.vim
 let $VIM = '~/.vim'
 let $VIMRUNTIME = '~/.vim'
 
-" Load Vundle plugins.
+
+" set the runtime path to include Vundle and initialize.
 set rtp+=~/.vim/bundle/Vundle.vim 
-filetype off
-so ~/.vim/plugin.vim
+filetype off " required for Vundle
+so ~/.vim/plugin.vim " All of my plugins are added to this file.
+filetype plugin indent on " required for Vundle
+" Vundle Brief help (Yes, my memory is not very good :)
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
 
 " 插入模式下回退操作的设置.
 set backspace=indent,eol,start
