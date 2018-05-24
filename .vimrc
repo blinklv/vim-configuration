@@ -3,7 +3,7 @@
 " Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-18
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-05-23
+" Last Change: 2018-05-24
 "
 " My VIM configure. Many settings are personalized for me, but if you still like 
 " it, you can copy this file (.vimrc) and .vim directory to your home directory.
@@ -34,10 +34,10 @@ set runtimepath=~/.vim
 let $VIM = '~/.vim'
 let $VIMRUNTIME = '~/.vim'
 
-" 载入Vundle.
-set rtp+=~/.vim/bundle/Vundle.vim   " 设置Vundle的默认执行路径.
-filetype off                        " 载入Vundle之前需要关闭filetype.
-so ~/.vim/vundle_plugin_list.vim    " 载入Vundle插件列表.
+" Load Vundle plugins.
+set rtp+=~/.vim/bundle/Vundle.vim 
+filetype off
+so ~/.vim/plugin.vim
 
 " 插入模式下回退操作的设置.
 set backspace=indent,eol,start
