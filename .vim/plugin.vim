@@ -36,6 +36,10 @@ function! s:nerdcommenter_configure()
     let g:NERDTrimTrailingWhitespace = 1
 endfunction
 
+function! s:tagbar_configure()
+    nnoremap <S-T> :TagbarToggle<CR>
+endfunction
+
 call vundle#begin()
 
 " Let Vundle manage Vundle, required.
@@ -80,6 +84,10 @@ Plugin 'tpope/vim-fugitive'
 " Golang development
 " Documentation: help vim-go
 Plugin 'fatih/vim-go'
+
+" Browse the tags of the current file and get an overview of its structure. 
+" Documentation: help tagbar
+Plugin 'majutsushi/tagbar' | call s:tagbar_configure()
 
 
 " All of your Plugins must be added before the following line.
