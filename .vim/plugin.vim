@@ -3,7 +3,7 @@
 " Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-23
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-05-24
+" Last Change: 2018-05-25
 "
 " This file lists all custom plugins for me, they're managed by Vundle. If
 " some plugins are rarely used by myself, although they are recommended by
@@ -38,6 +38,19 @@ endfunction
 
 function! s:tagbar_configure()
     nnoremap <S-T> :TagbarToggle<CR>
+endfunction
+
+function! s:vimgo_configure()
+    " Don't insert template file automatically.
+    let g:go_template_autocreate = 0
+
+    " I hate warning :(
+    let g:go_version_warning = 0
+
+    " I don't know why there will report 'Variable type mismatch for: opts'
+    " error when the type of g:go_fmt_options is dictionay, so I have to set
+    " it to an empty string.
+    let g:go_fmt_options = ''
 endfunction
 
 call vundle#begin()
@@ -83,7 +96,7 @@ Plugin 'tpope/vim-fugitive'
 
 " Golang development
 " Documentation: help vim-go
-Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go' | call s:vimgo_configure()
 
 " Browse the tags of the current file and get an overview of its structure. 
 " Documentation: help tagbar
