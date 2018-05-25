@@ -1,9 +1,15 @@
 " template.vim
 "
 " Author: blinklv <blinklv@icloud.com>
+" Create Time: 2018-05-25
+" Maintainer: blinklv <blinklv@icloud.com>
+" Last Change: 2018-05-25
+" template.vim
+"
+" Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-18
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-05-21
+" Last Change: 2018-05-25
 "
 " There are some template files in template directory, Which define some common 
 " header styles and information. This script will load these templates and insert 
@@ -44,9 +50,9 @@ function! s:insert_template(opts)
     " command in UNIX class system. So I handle this case by using an 
     " additional File field.
     if has_key(a:opts, 'has_file_field')
-        exe printf('silent! %ss/File:.*/File: %s', a:opts.range, expand('%'))
+        exe printf('silent! %ss/File:.*/File: %s', a:opts.range, expand('%:t'))
     else
-        exe printf('silent! 1s/^\([^\s]*\).*$/\1 %s/', expand('%'))
+        exe printf('silent! 1s/^\([^\s]*\).*$/\1 %s/', expand('%:t'))
     endif
 
     exe printf('silent! %ss/Author:.*/Author: %s <%s>', a:opts.range, s:author, s:author_email)
