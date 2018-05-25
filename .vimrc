@@ -28,6 +28,8 @@ mapclear
 " suitable than that.
 let mapleader = ","
 
+set encoding=utf8
+
 " Only using VIM configures in the '.vim' directory of your home directory.
 " There usually exists a global VIM configure, I also don't want to my custom
 " settings are polluted by them.
