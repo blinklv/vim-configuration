@@ -14,3 +14,12 @@ Session.vim
 tags
 # Persistent undo
 [._]*.un~
+
+
+# Ignore all files in Home directory and hidden files except 
+# for .gitignore, .vimrc and .vim
+/*
+.*
+!/.gitignore
+!/.vimrc
+!/.vim
