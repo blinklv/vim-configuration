@@ -1,12 +1,6 @@
 " template.vim
 "
 " Author: blinklv <blinklv@icloud.com>
-" Create Time: 2018-05-25
-" Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-05-25
-" template.vim
-"
-" Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-18
 " Maintainer: blinklv <blinklv@icloud.com>
 " Last Change: 2018-05-25
