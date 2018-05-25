@@ -36,36 +36,47 @@ endif
 let s:maintainer = s:author
 let s:maintainer_email = s:author_email
 
+" Get the line range of the current buffer. If the line number of the last
+" line is greater than 16, return the defualt range [1,16].
+function! s:get_range()
+    if line('$') > 16
+        return '1,16'
+    else
+        return printf('1,%d', line('$'))
+    endif
+endfunction
+
 " Insert a template when you create a new file.
 function! s:insert_template(opts) 
     exe printf(':0r %s/.vim/template/%s', $HOME, a:opts.file_name)
+    let range = s:get_range()
 
     " The first line of some script programming languages are interpreter
     " command in UNIX class system. So I handle this case by using an 
     " additional File field.
     if has_key(a:opts, 'has_file_field')
-        exe printf('silent! %ss/File:.*/File: %s', a:opts.range, expand('%:t'))
+        exe printf('silent! %ss/File:.*/File: %s', range, expand('%:t'))
     else
         exe printf('silent! 1s/^\([^\s]*\).*$/\1 %s/', expand('%:t'))
     endif
 
-    exe printf('silent! %ss/Author:.*/Author: %s <%s>', a:opts.range, s:author, s:author_email)
-    exe printf('silent! %ss/Create Time:.*/Create Time: %s', a:opts.range, strftime('%Y-%m-%d'))
+    exe printf('silent! %ss/Author:.*/Author: %s <%s>', range, s:author, s:author_email)
+    exe printf('silent! %ss/Create Time:.*/Create Time: %s', range, strftime('%Y-%m-%d'))
 endfunction
 
 " Update the existing template information when you change the content of your file.
 function! s:update_template(opts)
+    let range = s:get_range()
     exe 'normal ma'
-    exe printf('silent! %ss/Maintainer:.*/Maintainer: %s <%s>', a:opts.range, s:maintainer, s:maintainer_email)
-    exe printf('silent! %ss/Last Change:.*/Last Change: %s', a:opts.range, strftime('%Y-%m-%d'))
+    exe printf('silent! %ss/Maintainer:.*/Maintainer: %s <%s>', range, s:maintainer, s:maintainer_email)
+    exe printf('silent! %ss/Last Change:.*/Last Change: %s', range, strftime('%Y-%m-%d'))
     exe 'normal `a'
 endfunction
 
+
 " Golang file header template. All files which have the .go suffix will
 " use this header template.
-let s:golang_opts = {
-            \ 'file_name': 'template.go',
-            \ 'range': '1,6' }
+let s:golang_opts = { 'file_name': 'template.go' }
 
 augroup golang
     au!
@@ -75,9 +86,7 @@ augroup END
 
 " vim script header template. All files which have the .vim suffix or .vimrc file 
 " will use this header template. 
-let s:vimscript_opts = {
-            \ 'file_name': 'template.vim',
-            \ 'range': '1,6' }
+let s:vimscript_opts = { 'file_name': 'template.vim' }
 
 augroup vimscript
     au!
@@ -89,7 +98,6 @@ augroup END
 " use this header template.
 let s:python_opts = {
             \ 'file_name': 'template.py',
-            \ 'range': '1,8',
             \ 'has_file_field': 1 }
 
 
@@ -102,9 +110,7 @@ augroup END
 
 " C language header template. All files which have the .c suffix will use this 
 " header template.
-let s:c_opts = {
-            \ 'file_name': 'template.c',
-            \ 'range': '1,7' }
+let s:c_opts = { 'file_name': 'template.c' }
 
 augroup c
     au!
@@ -114,9 +120,7 @@ augroup END
 
 " C++ language header template. All files which have the .cc or .cpp suffix will use this 
 " header template.
-let s:cpp_opts = {
-            \ 'file_name': 'template.cc',
-            \ 'range': '1,6' }
+let s:cpp_opts = { 'file_name': 'template.cc' }
 
 augroup cpp
     au!
@@ -126,9 +130,7 @@ augroup END
 
 " JavaScript header template. All files which have the .js suffix will use
 " this header template.
-let s:javascript_opts = {
-            \ 'file_name': 'template.js',
-            \ 'range': '1,6' }
+let s:javascript_opts = { 'file_name': 'template.js' }
 
 augroup javascript
     au!
@@ -148,7 +150,6 @@ augroup END
 " will use this header template.
 let s:bash_opts = {
             \ 'file_name': 'template.sh',
-            \ 'range': '1,7',
             \ 'has_file_field': 1 }
 
 augroup bash
@@ -159,9 +160,7 @@ augroup END
 
 " Protobuf protocol header template. All files which have the .proto or .pb
 " suffix will use this header template.
-let s:protobuf_opts = {
-            \ 'file_name': 'template.proto',
-            \ 'range': '1,6' }
+let s:protobuf_opts = { 'file_name': 'template.proto' }
 
 augroup protobuf
     au!
@@ -180,9 +179,7 @@ augroup END
 
 " YAML header template. All files which have the .yaml or yml suffix will use
 " this header template.
-let s:yaml_opts = {
-            \ 'file_name': 'template.yaml',
-            \ 'range': '1,6' }
+let s:yaml_opts = { 'file_name': 'template.yaml' }
 augroup yaml
     au!
     autocmd BufNewFile *.yaml,*.yml call s:insert_template(s:yaml_opts)
