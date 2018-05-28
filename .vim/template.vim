@@ -3,7 +3,7 @@
 " Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-18
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-05-25
+" Last Change: 2018-05-28
 "
 " There are some template files in template directory, Which define some common 
 " header styles and information. This script will load these templates and insert 
@@ -168,13 +168,17 @@ augroup protobuf
     autocmd BufWritePre,FileWritePre *.proto,*.pb call s:update_template(s:protobuf_opts)
 augroup END
 
-" LICENSE template. All files named LICENSE,License or license will use this
-" named .
+function! s:insert_license()
+    0r $HOME/.vim/template/template.license
+    exe printf('silent! 3s/\[year\]/%s', strftime("%Y"))
+    exe printf('silent! 3s/\[fullname\]/%s', $USER)
+endfunction
+
+" LICENSE template. All files which named LICENSE (ignore case) will use this
+" header template.
 augroup license
     au!
-    autocmd BufNewFile LICENSE,License,license 0r $HOME/.vim/template/template.license
-    autocmd BufNewFile LICENSE,License,license exe 'silent! 3s/\[year\]/' . strftime("%Y")
-    autocmd BufNewFile LICENSE,License,license exe 'silent! 3s/\[fullname\]/' . $USER
+    autocmd BufNewFile LICENSE call s:insert_license()
 augroup END
 
 " YAML header template. All files which have the .yaml or yml suffix will use
