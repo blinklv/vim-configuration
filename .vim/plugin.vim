@@ -3,7 +3,7 @@
 " Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-23
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-05-25
+" Last Change: 2018-05-28
 "
 " This file lists all custom plugins for me, they're managed by Vundle. If
 " some plugins are rarely used by myself, although they are recommended by
@@ -51,6 +51,12 @@ function! s:vimgo_configure()
     " error when the type of g:go_fmt_options is dictionay, so I have to set
     " it to an empty string.
     let g:go_fmt_options = ''
+endfunction
+
+function! s:ack_configure()
+    " The -s option was implemented in ack 2.0 and aims at suppressing messages 
+    " about unreadables or non existing files. I remove it to compatible with ack < 2.0
+    let g:ack_default_options = " -H --nocolor --nogroup --column --smart-case --follow"
 endfunction
 
 call vundle#begin()
