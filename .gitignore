@@ -17,9 +17,11 @@ tags
 
 
 # Ignore all files in Home directory and hidden files except 
-# for .gitignore, .vimrc and .vim
+# for LICENSE, README.md, .gitignore, .vimrc and .vim
 /*
 .*
+!/LICENSE
+!/README.md
 !/.gitignore
 !/.vimrc
 !/.vim
