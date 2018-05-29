@@ -66,32 +66,48 @@ The configurations for updating templates are in the `.vim/template.vim` file.
 - [Incsearch](https://github.com/haya14busa/incsearch.vim)
 - [NerdTree](https://github.com/scrooloose/nerdtree)
 - [NerdCommenter](https://github.com/scrooloose/nerdcommenter)
-- [Ack](https://github.com/mileszs/ack.vim)
+- [Ack](https://github.com/mileszs/ack.vim) ([ack][])
 - [BufExplorer](https://github.com/jlanzarotta/bufexplorer)
-- [Vim-Fugitive](https://github.com/tpope/vim-fugitive)
-- [Vim-Go](https://github.com/fatih/vim-go)
-- [TagBar](https://github.com/majutsushi/tagbar)
+- [Vim-Fugitive](https://github.com/tpope/vim-fugitive) ([git][])
+- [Vim-Go](https://github.com/fatih/vim-go) ([Go][])
+- [TagBar](https://github.com/majutsushi/tagbar) ([ctags][] or [gotags][])
 
-All of these plugins are managed by [Vundle][] (include itself), the related configurations are in the `.vim/plugin.vim` file. Some plugins rely on some external programms, their download links are as follows:
+All of these plugins are managed by [Vundle][] (include itself), the related configurations are in the `.vim/plugin.vim` file. Some plugins rely on some external programs, their download links are placed in parentheses.
 
-**ack**
+## Shortcut Key
 
-```bash
-curl 'https://beyondgrep.com/ack-2.22-single-file' > /tmp/ack
-cp /tmp/ack /usr/local/bin/
-```
+I list shortcut keys in common use for me.
 
-**vim-fugitive**
+- **NerdTree**
+    - `Ctrl + n`: toggle *NERDTree*
+    - `Shift + i`: display hidden files
+    - `Shift + ?`: toggle help
+- **NerdCommenter**
+    - `<Leader>cc`: comment out the current line or text selected in visual mode.
+    - `<Leader>cm`: comment the given lines using only one set of multipart delimiters.
+    - `<Leader>ci`: toggle the comment state of the selected line(s) individually.
+    - `<Leader>c<space>`: Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa.
+- **BufExplorer**
+    - `<Leader>be`: to start exploring in the current window
+    - `<Leader>bt`: to toggle bufexplorer on or off in the current window
+    - `<Leader>bs`: to start exploring in a newly split horizontal window
+    - `<Leader>bv`: to start exploring in a newly split vertical window
+- **TagBar**
+    - `Shift + T`: toggle *tagbar*
+- **Custom**
+    - `Ctrl + l`: close the current window
+    - `Ctrl + e`: open a blank tab
+    - `Ctrl + p`: split window vertically
+    - `<Leader>n`: move to the next tab
+    - `<Leader>p`: move to the previous tab
+    - `<Leader>f`: move to the first tab
+    - `<Leader>l`: move to the last tab
+    - `Ctrl + a`: In command-line mode, move the cursor to the first character of the line
+    - `Ctrl + f`: In command-line mode, move the cursor to the right
+    - `Ctrl + b`: In command-line mode, move the cursor to the left
+    - `Ctrl + b`: In command-line mode, return
 
-Download [git][].
-
-**vim-go**
-
-Download [Go][]
-
-**tagbar**
-
-Download [ctags][] or [gotags][]
+All **custom** shortcut keys are defined in `.vim/shortcut.vim` file.
 
 [VIM]: https://en.wikipedia.org/wiki/Vim_(text_editor) "Vim Text Editor"
 [Vundle]: https://github.com/VundleVim/Vundle.vim
@@ -100,3 +116,4 @@ Download [ctags][] or [gotags][]
 [ctags]: http://ctags.sourceforge.net/
 [gotags]: https://github.com/jstemmer/gotags
 [C]: https://en.wikipedia.org/wiki/C_(programming_language)
+[ack]:https://beyondgrep.com/ack-2.22-single-file
