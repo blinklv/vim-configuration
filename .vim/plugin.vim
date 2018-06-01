@@ -3,7 +3,7 @@
 " Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-23
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-05-28
+" Last Change: 2018-06-01
 "
 " This file lists all custom plugins for me, they're managed by Vundle. If
 " some plugins are rarely used by myself, although they are recommended by
@@ -83,7 +83,7 @@ Plugin 'scrooloose/nerdcommenter' | call s:nerdcommenter_configure()
 "
 " Usage: :Ack [options] {pattern} [{directories}]
 " Documentation: help Ack
-Plugin 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim' | call s:ack_configure()
 
 " With bufexplorer, you can quickly and easily switch between buffers by using 
 " the one of the default public interfaces:
