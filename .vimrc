@@ -3,9 +3,9 @@
 " Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-18
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-05-25
+" Last Change: 2018-06-05
 "
-" My VIM configure. Many settings are personalized for me, but if you still like 
+" My VIM configuration. Many settings are personalized for me, but if you still like 
 " it, you can copy this file (.vimrc) and .vim directory to your home directory.
 
 " Because eVim starts Vim and sets options to make it behave like a modeless editor. 
