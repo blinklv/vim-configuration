@@ -3,7 +3,7 @@
 " Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-18
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-06-05
+" Last Change: 2018-06-12
 "
 " My VIM configuration. Many settings are personalized for me, but if you still like 
 " it, you can copy this file (.vimrc) and .vim directory to your home directory.
@@ -57,6 +57,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set smarttab 
+so ~/.vim/align.vim
 
 " Because TAB character may be different in various platform, I don't like
 " the layout of my codes changing when the platform changes. So I expand 
