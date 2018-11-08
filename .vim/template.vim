@@ -3,7 +3,7 @@
 " Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-18
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-05-28
+" Last Change: 2018-11-08
 "
 " There are some template files in template directory, Which define some common 
 " header styles and information. This script will load these templates and insert 
@@ -114,8 +114,8 @@ let s:c_opts = { 'file_name': 'template.c' }
 
 augroup c
     au!
-    autocmd BufNewFile *.c call s:insert_template(s:c_opts)
-    autocmd BufWritePre,FileWritePre *.c call s:update_template(s:c_opts)
+    autocmd BufNewFile *.c,*.h call s:insert_template(s:c_opts)
+    autocmd BufWritePre,FileWritePre *.c,*.h call s:update_template(s:c_opts)
 augroup END
 
 " C++ language header template. All files which have the .cc or .cpp suffix will use this 
@@ -124,8 +124,8 @@ let s:cpp_opts = { 'file_name': 'template.cc' }
 
 augroup cpp
     au!
-    autocmd BufNewFile *.cc,*.cpp call s:insert_template(s:cpp_opts)
-    autocmd BufWritePre,FileWritePre *.cc,*.cpp call s:update_template(s:cpp_opts)
+    autocmd BufNewFile *.cc,*.cpp,*.hpp call s:insert_template(s:cpp_opts)
+    autocmd BufWritePre,FileWritePre *.cc,*.cpp,*.hpp call s:update_template(s:cpp_opts)
 augroup END
 
 " JavaScript header template. All files which have the .js suffix will use
