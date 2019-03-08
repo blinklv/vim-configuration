@@ -25,3 +25,4 @@ tags
 !/.gitignore
 !/.vimrc
 !/.vim
+!/.bash_profile
