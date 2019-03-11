@@ -13,7 +13,8 @@
 #  6.   Networking
 #  7.   System Operations & Information
 #  8.   Web Development
-#  9.   Reminders & Notes
+#  9.   Loading .bashrc
+# 10.   Reminders & Notes
 #
 #  ---------------------------------------------------------------------------
 
@@ -280,9 +281,14 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 # source /usr/local/bin/virtualenvwrapper.sh
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+#   ---------------------------------------
+#   9.  Loading .bashrc
+#   ---------------------------------------
+
+[[ -s ~/.bashrc ]] && source ~/.bashrc
 
 #   ---------------------------------------
-#   9.  REMINDERS & NOTES
+#   10.  REMINDERS & NOTES
 #   ---------------------------------------
 
 #   remove_disk: spin down unneeded disk
