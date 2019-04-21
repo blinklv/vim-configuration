@@ -192,9 +192,9 @@ augroup END
 
 " Assembly header template. All files which have the .s suffix will use 
 " this header template.
-let s:ass_opts = { "file_name": 'template.s' }
-augroup ass
+let s:asm_opts = { "file_name": 'template.s' }
+augroup asm
     au!
-    autocmd BufNewFile *.s call s:insert_template(s:ass_opts)
-    autocmd BufWritePre,FileWritePre *.s call s:update_template(s:ass_opts)
+    autocmd BufNewFile *.s call s:insert_template(s:asm_opts)
+    autocmd BufWritePre,FileWritePre *.s call s:update_template(s:asm_opts)
 augroup END
