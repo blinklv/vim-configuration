@@ -3,7 +3,7 @@
 " Author: blinklv <blinklv@icloud.com>
 " Create Time: 2018-05-18
 " Maintainer: blinklv <blinklv@icloud.com>
-" Last Change: 2018-11-08
+" Last Change: 2019-04-21
 "
 " There are some template files in template directory, Which define some common 
 " header styles and information. This script will load these templates and insert 
@@ -188,4 +188,13 @@ augroup yaml
     au!
     autocmd BufNewFile *.yaml,*.yml call s:insert_template(s:yaml_opts)
     autocmd BufWritePre,FileWritePre *.yaml,*.yml call s:update_template(s:yaml_opts)
+augroup END
+
+" Assembly header template. All files which have the .s suffix will use 
+" this header template.
+let s:ass_opts = { "file_name": 'template.s' }
+augroup ass
+    au!
+    autocmd BufNewFile *.s call s:insert_template(s:ass_opts)
+    autocmd BufWritePre,FileWritePre *.s call s:update_template(s:ass_opts)
 augroup END
