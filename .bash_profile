@@ -36,7 +36,13 @@ export GOPATH=$HOME/Devel/go
 
 #   Set Paths
 #   ------------------------------------------------------------
+
+# Setting PATH for Golang.
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# Setting PATH for Python 3.8
+export PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}" 
+
 
 #   Set Colors To Match iTerm2 Terminal Colors
 #   ------------------------------------------------------------
@@ -77,6 +83,8 @@ alias c='clear'                             # Clear terminal display
 alias vim='/usr/bin/vim'                    # Using a specified VIM
 alias vi='vim -u ~/.vimrc'                  # Loading the local VIM configuration 
 alias ctags='/usr/local/bin/ctags'          # Using a specified CTags
+
+alias python='python3'                      # Using python3 by default.
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
