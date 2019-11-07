@@ -85,6 +85,18 @@ alias vi='vim -u ~/.vimrc'                  # Loading the local VIM configuratio
 alias ctags='/usr/local/bin/ctags'          # Using a specified CTags
 
 alias python='python3'                      # Using python3 by default.
+alias base64_enc='openssl base64'           # Base64 encode
+
+#   hex_enc: A Hex dump of file on a single line
+#   ------------------------------------------
+    hex_enc () {
+        if [ $# -eq 0 ]; then
+            hexdump -ve '1/1 "%.2x"' < /dev/stdin
+        else
+            cat "$1" | hexdump -ve '1/1 "%.2x"'
+        fi
+        echo
+    }
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
