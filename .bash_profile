@@ -31,7 +31,8 @@ export PS1='\u@\h \e[0;32m\w\e[0m> '
 #   Set Golang Environment
 #   ------------------------------------------------------------
 export GOROOT=/usr/local/go
-export GOPATH=$HOME/Devel/go
+export GOPATH=$HOME/Devel/go/gopath
+export GOPROXY=https://goproxy.cn
 
 
 #   Set Paths
