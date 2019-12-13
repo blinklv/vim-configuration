@@ -34,6 +34,10 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/Devel/go/gopath
 export GOPROXY=https://goproxy.cn
 
+#   Set Golang Environment
+#   ------------------------------------------------------------
+export PYTHONPATH=$HOME/Devel/python
+
 
 #   Set Paths
 #   ------------------------------------------------------------
