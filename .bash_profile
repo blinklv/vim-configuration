@@ -94,17 +94,6 @@ alias pip='pip3'                            # Using pip3 by default.
 alias base64_enc='openssl base64'           # Base64 encode
 alias encoding='file -b --mime-encoding'    # Get the encoding of a file.
 
-#   gocheck: Check the style of the target Golang code
-#   --------------------------------------------------
-gocheck() {
-    gofmt -d $1
-    go vet $1
-    gocyclo -over 20 $1
-    golint $1
-    ineffassign $1
-    misspell $1
-}
-
 #   hex_enc: A Hex dump of file on a single line
 #   ------------------------------------------
     hex_enc () {
